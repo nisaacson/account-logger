@@ -1,3 +1,4 @@
+var ce = require('cloneextend')
 var mixin = require('simple-mixin')
 var AccountLogger = function (account, logger) {
   this.innerAccount = account
@@ -6,21 +7,23 @@ var AccountLogger = function (account, logger) {
 }
 AccountLogger.prototype.register = function (data, cb) {
   var logger = this.logger
+  var logData = ce.clone(data)
+  logData.password = '****'
   logger.info('begin registering new account', {
-    data: data,
+    data: logData,
     section: 'registerAccount'
   })
   return this.innerAccount.register(data, function (err, reply) {
     if (err) {
-      logger.error('error registering new account', {
-        data: data,
+      logger.error('register account failed to complete correctly', {
+        data: logData,
         error: err,
         section: 'registerAccount'
       })
     }
     else {
       logger.info('registered new account correctly', {
-        data: data,
+        data: logData,
         section: 'registerAccount'
       })
 
