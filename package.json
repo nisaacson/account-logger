@@ -1,6 +1,6 @@
 {
   "name": "account-logger",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Add logging to the account interface",
   "main": "index.js",
   "directories": {
@@ -23,12 +23,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "''"
+    "url": "git://github.com/nisaacson/account-logger.git"
   },
   "keywords": [
     "account"
   ],
   "author": "Noah Isaacson",
   "license": "BSD",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "gitHead": "9c8607a395e2304c2f973026339a45eff39f7b0f"
 }
