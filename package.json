@@ -1,6 +1,6 @@
 {
   "name": "account-logger",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Add logging to the account interface",
   "main": "index.js",
   "directories": {

@@ -35,26 +35,29 @@ AccountLogger.prototype.register = function (data, cb) {
 AccountLogger.prototype.login = function (data, cb) {
   var logger = this.logger
   return this.innerAccount.login(data, function (err, reply) {
+    var logData = ce.clone(data)
+    logData.password = '****'
     if (err) {
       logger.error('error for login account', {
-        data: data,
+        data: logData,
         error: err,
         section: 'loginAccount'
       })
     }
     else if (!reply) {
       logger.info('login account failed to complete correctly', {
-        data: data,
+        data: logData,
         reply: reply,
         section: 'loginAccount'
       })
     }
     else {
       data.password = '****'
-      reply.hash = '****'
+      var replyLogData = ce.clone(reply)
+      replyLogData.hash = '****'
       logger.info('login account completed correctly', {
-        data: data,
-        reply: reply,
+        data: logData,
+        reply: replyLogData,
         section: 'loginAccount'
       })
     }
