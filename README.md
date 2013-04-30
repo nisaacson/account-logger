@@ -1,5 +1,5 @@
 # Account Couch Logger
-Implement the account interface using a couchdb backend with the couch-profile module plus logging via a winston logger
+Log register and login requests to an account module 
 
 # Installation
 
@@ -21,14 +21,22 @@ var config = require('nconf').defaults({
   }    
 })
 var logger = require('loggly-console-logger')
-var account = require('account-couch')(logger)
+// instatiate an couchdb-based account backend object
+var AccountCouch = require('account-couch')
 var db = require('cradle-nconf')(config)
 var data = {
   email: 'foo@example.com',
   password: 'barPassword',
   db: db
 }
-accountCouch.register(data, function (err, reply) {
+
+var accountCouch = new AccountCouch(db)
+var AccountLogger = require('account-logger')
+
+// instatitate the account logger object, passing  the couchdb-based account backend and the winston logger object as paramteres to the constructor
+var account = new AccountLogger(accountCouch, logger)
+
+account.register(data, function (err, reply) {
   if (err) {
     inspect(err, 'error registering user account')
     return
