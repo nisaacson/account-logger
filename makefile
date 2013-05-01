@@ -8,5 +8,7 @@ register-wiring:
 	$(MOCHA) test/register-wiring-test.js --reporter $(REPORTER)
 login-wiring:
 	$(MOCHA) test/login-wiring-test.js --reporter $(REPORTER)
+prototype:
+	$(MOCHA) test/prototype-test.js --reporter $(REPORTER)
 
 .PHONY: test

@@ -1,10 +1,11 @@
 var ce = require('cloneextend')
 var mixin = require('simple-mixin')
 var AccountLogger = function (account, logger) {
+  mixin(account, this)
   this.innerAccount = account
   this.logger = logger
-  mixin(account, this)
 }
+
 AccountLogger.prototype.register = function (data, cb) {
   var logger = this.logger
   var logData = ce.clone(data)
