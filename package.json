@@ -7,8 +7,9 @@
     "test": "test"
   },
   "dependencies": {
-    "simple-mixin": "0.0.1",
-    "cloneextend": "0.0.3"
+    "cloneextend": "0.0.3",
+    "account-couch": "~1.0.1",
+    "simple-mixin": "~1.0.0"
   },
   "devDependencies": {
     "eyespect": "~0.1.8",

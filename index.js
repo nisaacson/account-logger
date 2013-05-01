@@ -1,5 +1,6 @@
 var ce = require('cloneextend')
 var mixin = require('simple-mixin')
+var inspect = require('eyespect').inspector();
 var AccountLogger = function (account, logger) {
   mixin(account, this)
   this.innerAccount = account
